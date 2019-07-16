@@ -17,7 +17,11 @@ class CreateBooksTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->date('published');
+            $table->bigInteger('author_id')->unsigned();
+            $table->foreign('author_id')->references('id')->on('authors');
             $table->timestamps();
+
+
         });
     }
 
